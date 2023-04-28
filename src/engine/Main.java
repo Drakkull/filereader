@@ -6,11 +6,11 @@ public class Main {
     public static void main(String[] args) {
         //NOW IT'S TIME TO USE BUFFERED WRITER AND FILEWRITER USING STRING TO INITIALIZE
 
-        String[] lines = new String[] {"Screw You", "Anything","Just horsin around"};
+        String[] lines = new String[] {"Screw You", "Anything","Just horsin around","NEW ENTRY, MATE!"};
 
         String path = "c:\\temp2\\out.txt";
 
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter(path))){
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))){
 
             for(String line : lines){
                 bw.write(line);
