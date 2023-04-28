@@ -8,13 +8,9 @@ public class Main {
     public static void main(String[] args) {
         String path = "c:\\temp2\\git.txt";
 
-        FileReader fr= null;
-        BufferedReader br= null;
 
         System.out.println("----------------------------------");
-        try{
-            fr = new FileReader(path);
-            br = new BufferedReader(fr);
+        try(BufferedReader br = new BufferedReader(new FileReader(path))){
 
             String line = br.readLine();
 
