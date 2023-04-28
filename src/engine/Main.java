@@ -1,28 +1,26 @@
 package engine;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class Main {
     public static void main(String[] args) {
-        String path = "c:\\temp2\\git.txt";
+        //NOW IT'S TIME TO USE BUFFERED WRITER AND FILEWRITER USING STRING TO INITIALIZE
 
+        String[] lines = new String[] {"Screw You", "Anything","Just horsin around"};
 
-        System.out.println("----------------------------------");
-        try(BufferedReader br = new BufferedReader(new FileReader(path))){
+        String path = "c:\\temp2\\out.txt";
 
-            String line = br.readLine();
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(path))){
 
-            while ( line != null){
-                System.out.println(line);
-                line = br.readLine();
+            for(String line : lines){
+                bw.write(line);
+                bw.newLine();
             }
-        }
-        catch (IOException e){
-            System.out.println("Error:  " +e.getMessage());
-        }
 
-        System.out.println("-----------TERMINOU---------------");
+        }
+        catch(IOException e){
+            e.printStackTrace();
+
+        }
     }
 }
